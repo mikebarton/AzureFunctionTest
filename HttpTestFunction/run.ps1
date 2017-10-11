@@ -7,5 +7,7 @@ if ($req_query_name)
 {
     $name = $req_query_name 
 }
+cd D:\home\site\wwwroot\HttpTestFunction
+$result = d:\home\R-3.3.3\bin\x64\Rscript.exe script.r 2>&1
 
-Out-File -Encoding Ascii -FilePath $res -inputObject "Hello $name"
+Out-File -Encoding Ascii -FilePath $res -inputObject "Hello $result"
