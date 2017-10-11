@@ -1,13 +1,21 @@
 # POST method: $req
 $requestBody = Get-Content $req -Raw | ConvertFrom-Json
-$name = $requestBody.name
+$v1Bookings = $requestBody.v1Bookings
+$v1Visitors = $requestBody.v1Visitors
+$v2Bookings = $requestBody.v2Bookings
+$v2Visitors = $requestBody.v2Visitors
+$tStat = $requestBody.tStat
+$pValueMax = $requestBody.pValueMax
 
-# GET method: each querystring parameter is its own variable
-if ($req_query_name) 
+if ($v1Bookings -and $v1Visitors -and $v2Bookings -and $v2Visitors -and $tStat -and $pValueMax) 
 {
-    $name = $req_query_name 
+    cd D:\home\site\wwwroot\HttpTestFunction
+    $result = d:\home\R-3.3.3\bin\x64\Rscript.exe script.r $v1Bookings $v1Visitors $v2Bookings $v2Visitors $tStat $pValueMax 2>&1    
+    Out-File -Encoding Ascii -FilePath $res -inputObject "Hello $result"
 }
-cd D:\home\site\wwwroot\HttpTestFunction
-$result = d:\home\R-3.3.3\bin\x64\Rscript.exe script.r 6251 78502 7819 97070 0.975 0.05 2>&1
+else
+{
+    Out-File -Encoding Ascii -FilePath $res -inputObject "Insufficient Arguments"
+}
 
-Out-File -Encoding Ascii -FilePath $res -inputObject "Hello $result"
+
