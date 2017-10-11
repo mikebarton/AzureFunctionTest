@@ -1,10 +1,18 @@
+args <- commandArgs(TRUE)
+v1a <- as.integer(args[1])
+v2a <- as.integer(args[2])
+v1b <- as.integer(args[3])
+v2b <- as.integer(args[4])
+tStat <- as.double(args[5])
+pValueMax <- as.double(args[6])
+
 # v1a, v2a are total bookings, v1b, v2b are total visitors for each respective variant
-v1a = 6251
-v1b = 78502
-v2a = 7819
-v2b = 97070
-tStat = 0.975
-pValueMax = 0.05
+#v1a = 6251
+#v1b = 78502
+#v2a = 7819
+#v2b = 97070
+#tStat = 0.975
+#pValueMax = 0.05
 
 # Get the P value
 # Ref: http://blog.minitab.com/blog/understanding-statistics/what-can-you-say-when-your-p-value-is-greater-than-005
