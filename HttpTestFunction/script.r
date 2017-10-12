@@ -1,8 +1,10 @@
 args <- commandArgs(TRUE)
-v1a <- as.integer(args[1])
-v1b <- as.integer(args[2])
-v2a <- as.integer(args[3])
-v2b <- as.integer(args[4])
+v1Name <- as.string(args[1])
+v1a <- as.integer(args[2])
+v1b <- as.integer(args[3])
+v2Name <- as.string(args[4])
+v2a <- as.integer(args[5])
+v2b <- as.integer(args[6])
 
 # v1a, v2a are total bookings, v1b, v2b are total visitors for each respective variant
 #v1a = 6251
@@ -48,6 +50,6 @@ percent <- function(x, digits = 2, format = "f", ...) {
 tdone = TESTDONE(tStat, pvalmax, v1a, v1b, v2a, v2b)
 pagtb = 1 - P(v1a, v1b, v2a, v2b)
 pbgta = 1 - pagtb
-winner <- if(pagtb > pbgta) "A" else "B"
+winner <- if(pagtb > pbgta) v1Name else v2Name
 
 paste('{ "Completed": ', tdone, ', "Winner" : "' , winner, '""}')
