@@ -48,5 +48,6 @@ percent <- function(x, digits = 2, format = "f", ...) {
 tdone = TESTDONE(tStat, pvalmax, v1a, v1b, v2a, v2b)
 pagtb = 1 - P(v1a, v1b, v2a, v2b)
 pbgta = 1 - pagtb
+winner <- if(pagtb > pbgta) "A" else "B"
 
-paste('Test done:', tdone, 'Percentage A > B:', percent(pagtb), 'Percentage B > A:', percent(pbgta))
+paste('{ "Completed": ', tdone, ', "Winner" : "' , winner, '""}')

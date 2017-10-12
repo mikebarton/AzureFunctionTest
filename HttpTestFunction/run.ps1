@@ -12,7 +12,7 @@ if ($variation1Bookings -and $variation1Visitors -and $variation2Bookings -and $
     Out-File -Encoding Ascii -FilePath $res -inputObject $result
 }
 else
-{    $text = $res.GetType();
+{    $text = $res.GetType().FullName;
     Out-File -Encoding Ascii -FilePath $res -inputObject "Insufficient Arguments - $text"
 }
 
