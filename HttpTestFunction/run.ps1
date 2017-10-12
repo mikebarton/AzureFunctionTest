@@ -1,14 +1,14 @@
 # POST method: $req
 $requestBody = Get-Content $req -Raw | ConvertFrom-Json
-$v1Bookings = $requestBody.v1Bookings
-$v1Visitors = $requestBody.v1Visitors
-$v2Bookings = $requestBody.v2Bookings
-$v2Visitors = $requestBody.v2Visitors
+$variation1Bookings = $requestBody.variation1Bookings
+$variation1Visitors = $requestBody.variation1Visitors
+$variation2Bookings = $requestBody.variation2Bookings
+$variation2Visitors = $requestBody.variation2Visitors
 
-if ($v1Bookings -and $v1Visitors -and $v2Bookings -and $v2Visitors) 
+if ($variation1Bookings -and $variation1Visitors -and $variation2Bookings -and $variation2Visitors) 
 {
     cd D:\home\site\wwwroot\HttpTestFunction
-    $result = d:\home\R-3.3.3\bin\x64\Rscript.exe script.r $v1Bookings $v1Visitors $v2Bookings $v2Visitors 2>&1    
+    $result = d:\home\R-3.3.3\bin\x64\Rscript.exe script.r $variation1Bookings $variation1Visitors $variation2Bookings $variation2Visitors 2>&1    
     Out-File -Encoding Ascii -FilePath $res -inputObject "Hello $result"
 }
 else
