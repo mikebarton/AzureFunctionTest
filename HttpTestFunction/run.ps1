@@ -9,10 +9,11 @@ if ($variation1Bookings -and $variation1Visitors -and $variation2Bookings -and $
 {
     cd D:\home\site\wwwroot\HttpTestFunction
     $result = d:\home\R-3.3.3\bin\x64\Rscript.exe script.r $variation1Bookings $variation1Visitors $variation2Bookings $variation2Visitors 2>&1    
-    Out-File -Encoding Ascii -FilePath $res -inputObject "Hello $result"
+    Out-File -Encoding Ascii -FilePath $res -inputObject $result
 }
 else
 {
+    $res.StatusCode = 404
     Out-File -Encoding Ascii -FilePath $res -inputObject "Insufficient Arguments"
 }
 
