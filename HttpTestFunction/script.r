@@ -1,8 +1,8 @@
 args <- commandArgs(TRUE)
-v1Name <- as.string(args[1])
+v1Name <- args[1]
 v1a <- as.integer(args[2])
 v1b <- as.integer(args[3])
-v2Name <- as.string(args[4])
+v2Name <- args[4]
 v2a <- as.integer(args[5])
 v2b <- as.integer(args[6])
 
