@@ -13,8 +13,8 @@ if ($variation1Bookings -and $variation1Visitors -and $variation2Bookings -and $
 }
 else
 {
-    $res.StatusCode = 404
-    Out-File -Encoding Ascii -FilePath $res -inputObject "Insufficient Arguments"
+    
+    Out-File -Encoding Ascii -FilePath $res -inputObject "Insufficient Arguments $res.GetType()"
 }
 
 
